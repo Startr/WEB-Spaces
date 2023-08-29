@@ -9,7 +9,7 @@ Vue.use(VueSimpleAlert);
 Vue.config.productionTip = false;
 
 Vue.use(PageTitle, {
-  suffix: " - Class "
+  suffix: " - Space "
 });
 
 new Vue({
