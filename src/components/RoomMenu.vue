@@ -18,7 +18,7 @@
       <ul id="menu">
         <li class="room">
           <div>
-            <input type="text" v-model="search" v-on:keyup="room_filter" placeholder="🔎        Classes        🔍" size="28"/>
+            <input type="text" v-model="search" v-on:keyup="room_filter" placeholder="🔎        Room - Search        🔍" size="28"/>
           </div>
         </li>
         <li v-for="item in filtered_rooms" v-bind:key="item.id" v-bind:name="item.name" class="room">
@@ -136,9 +136,11 @@ export default {
   transform: rotate(-45deg) translate(0, -1px);
 }
 #menu {
+  font-size: 120%;
+  line-height: 1.5;
   position: absolute;
-  width: 50vw;
-  height: 88vh;
+  min-width: 28rem;
+  min-height: calc(100vh + 100px);
   overflow-x: hidden;
   overflow-y: scroll;
   margin: -100px 0 0 -50px;
