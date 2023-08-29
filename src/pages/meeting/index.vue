@@ -12,9 +12,9 @@
 
         <div id="logo">
           <img
-            src="assets/Preville-Logo-white.svg"
-            alt="Preville Logo"
-            style="height: 37px; padding: 6px 6px 6px 6px; margin-left: 60px"
+            src="assets/logo.png"
+            alt="Logo"
+            style="padding: 6px; margin-left: 60px"
             id="logoImg"
           />
         </div>
@@ -34,7 +34,7 @@
               <div>
                 <h2>{{ thisRooms.alt }}</h2>
                 <h2>{{ thisRooms.meet }}</h2>
-                <!--<h3>{{ $route.params }}</h3>-->
+                <h3>{{ thisRooms.salt }}</h3>
               </div>
               <label class="modal-close button" for="modal-toggle">Close</label>
             </div>
@@ -67,7 +67,7 @@
           <a
             :href="
               thisRooms.classroom.platform.domain +
-              thisRooms.meet +
+              thisRooms.meet + thisRooms.salt +
               thisRooms.classroom.platform.paramiters
             "
             target="meeting_iframe"
@@ -83,7 +83,7 @@
             v-bind:key="n"
             :href="
               thisRooms.classroom.platform.domain +
-              thisRooms.meet +
+              thisRooms.meet + thisRooms.salt +
               '-breakout-room-' +
               n +
               thisRooms.classroom.platform.paramiters
@@ -98,7 +98,7 @@
             class="dot support"
             target="_blank"
             onclick=""
-            href="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+            href="https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
           >
             <span>?</span>
           </a>
@@ -115,7 +115,7 @@
       <div class="window">
         <iframe
           style="width: 0%; height: calc(100% - 50px); border: none"
-          src="https://www.centrepreville.org/camp-f-a-q-troubleshooting"
+          src="https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
           id="faq"
           name="faq_iframe"
         ></iframe>
@@ -147,7 +147,7 @@
           allow="microphone; camera; display-capture; fullscreen, execution-while-not-rendered, execution-while-out-of-viewport"
           :src="
             thisRooms.classroom.platform.domain +
-            thisRooms.meet +
+            thisRooms.meet + thisRooms.salt +
             thisRooms.classroom.platform.paramiters
           "
           name="meeting_iframe"
@@ -162,7 +162,7 @@
 <script>
 export default {
   name: "meet",
-  title: "Préville - Preville",
+  title: "Hall",
   created: function () {
     //Populate empty meeting
   },
@@ -176,9 +176,9 @@ export default {
     params: function () {
       if (!this.$route.params.meet) {
         return {
-          meet: "Foyer de Préville - Preville Lobby",
-          alt: "Foyer de Préville - Preville Lobby",
-          name: "Foyer de Préville - Preville Lobby",
+          meet: "Foyer - Lobby",
+          alt: "Foyer - Lobby",
+          name: "Foyer - Lobby",
           title: "Hall",
           frameposition: 0,
           breakout_rooms: 1,
@@ -193,8 +193,8 @@ export default {
           {
             name: "FAQ",
             logo:
-              "https://centrepreville.org/wp-content/uploads/2020/12/Pre%CC%81villeLogoNEW-300x153.png",
-            iframe: "https://centrepreville.org/camp-f-a-q-troubleshooting/",
+              "",
+            iframe: "",
           },
         ];
       } else {
@@ -212,6 +212,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 a {
   color: #444499;
@@ -242,10 +243,15 @@ a:hover {
 }
 
 #logo {
-  display: inline;
-  position: absolute;
-  left: 0px;
-}
+    display: inline;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+  }
+
+  #logo img {
+    height: 100%;
+  }
 
 h1 {
   margin-top: 5px;
@@ -454,7 +460,6 @@ h1 {
 @media (max-width: 991px) {
   .dot {
     height: 27px;
-    min-width: 25px;
     margin-left: 5px;
   }
 }
@@ -467,7 +472,7 @@ h1 {
 }
 .dot > * {
   /* vertical-align: bottom; */
-  line-height: 28px;
+  line-height: 25px;
   font-size: larger;
   font-weight: inherit;
 }
@@ -499,7 +504,7 @@ h1 {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  height: 88%;
+  min-height: 88%;
   font-size: 3rem;
 }
 

@@ -43,7 +43,7 @@ export default {
         }
       ],
       rooms: data.results,
-      filtered_rooms: data.results
+      filtered_rooms: data.results,
     }
   },
   created() {
@@ -67,6 +67,9 @@ export default {
 </script>
 
 <style>
+
+@import url("https://startr.style/style.css");
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

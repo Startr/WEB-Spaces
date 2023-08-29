@@ -12,9 +12,9 @@
 
         <div id="logo">
           <img
-            src="assets/Preville-Logo-white.svg"
-            alt="Preville Logo"
-            style="height: 37px; padding: 6px 6px 6px 6px; margin-left: 60px"
+            src="assets/logo.png"
+            alt="Logo"
+            style="padding: 6px; margin-left: 60px"
             id="logoImg"
           />
         </div>
@@ -104,7 +104,7 @@
 <script>
   export default {
     name: "meet",
-    title: "Préville - Preville",
+    title: "meet",
     created: function () {
       //Populate empty meeting
     },
@@ -121,9 +121,9 @@
       params: function() {
         if (!this.$route.params.meet) {
           return {
-            meet: "Foyer de Préville - Preville Lobby",
-            alt: "Foyer de Préville - Preville Lobby",
-            name: "Foyer de Préville - Preville Lobby",
+            meet: "Foyer - Lobby",
+            alt: "Foyer - Lobby",
+            name: "Foyer -  Lobby",
             title: "Hall",
             frameposition: 0,
             breakout_rooms:1
@@ -136,8 +136,8 @@
         if (!this.$route.params.app_set){
           return [{
             "name": "FAQ",
-            "logo": "https://centrepreville.org/wp-content/uploads/2020/12/Pre%CC%81villeLogoNEW-300x153.png",
-            "iframe": "https://centrepreville.org/camp-f-a-q-troubleshooting/"
+            "logo": "",
+            "iframe": "https://startr.ca/faq",
             }]
         } else {
           return this.$route.params.app_set
@@ -185,6 +185,11 @@
     display: inline;
     position: absolute;
     left: 0px;
+    height: 100%;
+  }
+
+  #logo img {
+    height: 100%;
   }
 
   h1 {
@@ -318,7 +323,7 @@
     right: 20px;
     background: #4caf50;
     color: #fff;
-    width: 50px;
+    width: 100px;
     border-radius: 2px;
     font-size: 14px;
     font-weight: normal;
@@ -395,7 +400,6 @@
  @media (max-width: 991px) { 
    .dot{
      height: 27px;
-     min-width: 25px;
      margin-left: 5px;
  }
 }
@@ -408,7 +412,7 @@
   }
   .dot > * {
     /* vertical-align: bottom; */
-    line-height: 28px;
+    line-height: 25px;
     font-size: larger;
     font-weight: inherit;
   }
@@ -440,7 +444,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    height: 88%;
+    min-height: 88%;
     font-size: 3rem;
   }
 
