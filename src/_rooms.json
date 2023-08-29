@@ -32,8 +32,7 @@
                 "name": "Foyer Lobby",
                 "meet": "Foyer-Lobby",
                 "taught_by": ""
-            },
-            "salt": "\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+            }
         },
         {
             "name": "Salle de r\u00e9union - Meeting Room",
@@ -46,7 +45,7 @@
                     {
                         "name": "Shared Whiteboard",
                         "logo": "https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/dd/c6/96/ddc69628-d261-913b-220c-eaed6f140dd3/source/256x256bb.jpg",
-                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard-\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard"
                     }
                 ],
                 "platform": {
@@ -63,8 +62,7 @@
                 "name": "Salle de r\u00e9union - Meeting Room",
                 "meet": "Meeting-Room",
                 "taught_by": ""
-            },
-            "salt": "\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+            }
         },
         {
             "name": "Biblioth\u00e8que - Library",
@@ -94,8 +92,7 @@
                 "name": "Biblioth\u00e8que - Library",
                 "meet": "Online-Library",
                 "taught_by": ""
-            },
-            "salt": "\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+            }
         },
         {
             "name": "Salle de jeux - Games Room",
@@ -125,9 +122,7 @@
                 "name": "Salle de jeux - Games Room",
                 "meet": "Online-Games-Room",
                 "taught_by": ""
-            },
-            "salt": "\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+            }
         }
-    ],
-    "salt": "\ud83d\ude2e\ud83e\udd20\ud83e\udd17\ud83d\ude01"
+    ]
 }
