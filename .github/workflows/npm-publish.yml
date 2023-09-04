@@ -3,9 +3,10 @@
 
 name: NPM Package
 
-on:
-  release:
-    types: [created]
+on:  
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
