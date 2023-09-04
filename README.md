@@ -1,6 +1,7 @@
-# Startr Spaces 
+# Startr Spaces v0.0.2
 ## Powered by Latitude
 
+### Added relative paths
 
 Startr Spaces provides people with virtual spaces. It is an online environment where people interact via audio, video, and sharing apps. Institutions use our software to host hybrid experiences while maintaining the functionality available in a traditional meeting environment. 
 
