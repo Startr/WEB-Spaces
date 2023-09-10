@@ -4,8 +4,8 @@
   "private": true,
   "description": "",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "rm ./dist/js/* && rm ./dist/css/* && vue-cli-service build --no-clean",
+    "serve": "pushd src && python salt_rooms.py && popd && vue-cli-service serve",
+    "build": "pushd src && python salt_rooms.py && popd && rm -f ./dist/js/* && rm -f ./dist/css/* && vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
