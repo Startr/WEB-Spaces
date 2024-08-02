@@ -7,7 +7,7 @@ Startr Spaces provides people with virtual spaces. It is an online environment w
 
 [![Run on Repl.it](https://repl.it/badge/github/Startr/WEB-Spaces/)](https://repl.it/github/Startr/WEB-Spaces/) 
 
-[![Run on https://codesandbox.io/](https://rawcdn.githack.com/Startr/WEB-Spaces/acb65df441a1f73e00b29e0d78ccb6dd5fbce514/public/assets/codesandbox.svg)](https://codesandbox.io/s/github/Startr/WEB-Spaces/)
+[![Run on https://codesandbox.io/](./public/assets/codesandbox.svg)](https://codesandbox.io/s/github/Startr/WEB-Spaces/)
 
 Features include: 
 
