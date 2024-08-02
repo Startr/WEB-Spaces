@@ -5,9 +5,9 @@
 
 Startr Spaces provides people with virtual spaces. It is an online environment where people interact via audio, video, and sharing apps. Institutions use our software to host hybrid experiences while maintaining the functionality available in a traditional meeting environment. 
 
-[![Run on Repl.it](https://repl.it/badge/github/opencoca/lt2d_school)](https://repl.it/github/opencoca/lt2d_school) 
+[![Run on Repl.it](https://repl.it/badge/github/Startr/WEB-Spaces/)](https://repl.it/github/Startr/WEB-Spaces/) 
 
-[![Run on https://codesandbox.io/](https://rawcdn.githack.com/opencoca/lt2d_school/acb65df441a1f73e00b29e0d78ccb6dd5fbce514/public/assets/codesandbox.svg)](https://codesandbox.io/s/github/opencoca/lt2d_school)
+[![Run on https://codesandbox.io/](https://rawcdn.githack.com/Startr/WEB-Spaces/acb65df441a1f73e00b29e0d78ccb6dd5fbce514/public/assets/codesandbox.svg)](https://codesandbox.io/s/github/Startr/WEB-Spaces/)
 
 Features include: 
 
