@@ -22,7 +22,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -33,7 +33,7 @@
                 "meet": "Foyer-Lobby",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
         },
         {
             "name": "Salle de r\u00e9union - Meeting Room",
@@ -46,14 +46,14 @@
                     {
                         "name": "Shared Whiteboard",
                         "logo": "https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/dd/c6/96/ddc69628-d261-913b-220c-eaed6f140dd3/source/256x256bb.jpg",
-                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard-\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard-\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
                     }
                 ],
                 "platform": {
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -64,7 +64,7 @@
                 "meet": "Meeting-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
         },
         {
             "name": "Biblioth\u00e8que - Library",
@@ -84,7 +84,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -95,7 +95,7 @@
                 "meet": "Online-Library",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
         },
         {
             "name": "Salle de jeux - Games Room",
@@ -115,7 +115,7 @@
                     "id": 1,
                     "name": "Public Jitsi",
                     "domain": "https://meet.jit.si/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://meet.jit.si/",
                     "order": 1
                 },
@@ -126,8 +126,8 @@
                 "meet": "Online-Games-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
         }
     ],
-    "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+    "salt": "\ud83d\ude17\ud83d\ude0b\ud83d\ude01\ud83d\ude01"
 }
