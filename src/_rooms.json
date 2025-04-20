@@ -22,7 +22,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -52,7 +52,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -82,7 +82,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://8x8.vc/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://8x8.vc/startr/",
                     "order": 3
                 },
@@ -112,7 +112,7 @@
                     "id": 1,
                     "name": "Public Jitsi",
                     "domain": "https://meet.jit.si/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
                     "logo": "https://meet.jit.si/",
                     "order": 1
                 },
