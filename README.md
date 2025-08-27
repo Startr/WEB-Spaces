@@ -1,5 +1,7 @@
-# Startr Spaces v0.0.3.1
-## Powered by Latitude
+# Startr Spaces v0.0.4
+## Powered by Startr
+
+Now using Startr Spaces
 
 ### Added relative paths
 
