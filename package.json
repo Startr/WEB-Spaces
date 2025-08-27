@@ -6,10 +6,12 @@
   "scripts": {
     "serve": "cd src && python salt_rooms.py && cd .. && vue-cli-service serve",
     "build": "cd src && python salt_rooms.py && cd .. && rm -f ./dist/js/* && rm -f ./dist/css/* && vue-cli-service build --no-clean",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "update-browsers": "bun x browserslist --update-db"
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "^5.0.0",
+    "caniuse-lite": "^1.0.30001737",
     "qrcode.vue": "^3.2.2",
     "vue": "^2.6.14",
     "vue-page-title": "^1.2.4",

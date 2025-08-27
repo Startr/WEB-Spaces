@@ -15,15 +15,15 @@
                     {
                         "name": "FAQ",
                         "logo": "",
-                        "iframe": "https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
+                        "iframe": "https://wbo.ophir.dev/boards/FtsL-vNceb-IA-H93os4RKIkbS2of0wIK18cdMggPbs-"
                     }
                 ],
                 "platform": {
                     "id": 3,
                     "name": "High Capacity HQ",
-                    "domain": "https://8x8.vc/startr/",
+                    "domain": "https://meet.startr.space/startr/",
                     "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
-                    "logo": "https://8x8.vc/startr/",
+                    "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
                 "pub_date": "2021-01-08T18:33:17-05:00",
@@ -33,7 +33,7 @@
                 "meet": "Foyer-Lobby",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
         },
         {
             "name": "Salle de r\u00e9union - Meeting Room",
@@ -46,15 +46,15 @@
                     {
                         "name": "Shared Whiteboard",
                         "logo": "https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/dd/c6/96/ddc69628-d261-913b-220c-eaed6f140dd3/source/256x256bb.jpg",
-                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard-\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard-\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
                     }
                 ],
                 "platform": {
                     "id": 3,
                     "name": "High Capacity HQ",
-                    "domain": "https://8x8.vc/startr/",
+                    "domain": "https://meet.startr.space/startr/",
                     "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
-                    "logo": "https://8x8.vc/startr/",
+                    "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
                 "pub_date": "2021-01-10T14:14:09-05:00",
@@ -64,7 +64,7 @@
                 "meet": "Meeting-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
         },
         {
             "name": "Biblioth\u00e8que - Library",
@@ -83,9 +83,9 @@
                 "platform": {
                     "id": 3,
                     "name": "High Capacity HQ",
-                    "domain": "https://8x8.vc/startr/",
+                    "domain": "https://meet.startr.space/startr/",
                     "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
-                    "logo": "https://8x8.vc/startr/",
+                    "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
                 "pub_date": "2020-11-17T15:13:42-05:00",
@@ -95,7 +95,7 @@
                 "meet": "Online-Library",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
         },
         {
             "name": "Salle de jeux - Games Room",
@@ -114,9 +114,9 @@
                 "platform": {
                     "id": 1,
                     "name": "Public Jitsi",
-                    "domain": "https://meet.jit.si/",
+                    "domain": "https://meet.startr.space/",
                     "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
-                    "logo": "https://meet.jit.si/",
+                    "logo": "https://meet.startr.space/",
                     "order": 1
                 },
                 "pub_date": "2021-01-09T15:06:57-05:00",
@@ -126,8 +126,8 @@
                 "meet": "Online-Games-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+            "salt": "\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
         }
     ],
-    "salt": "\ud83d\ude19\ud83d\ude09\ud83d\ude36\ud83e\udd23"
+    "salt": "\ud83d\ude0c\ud83d\ude02\ud83d\ude42\ud83d\ude36"
 }

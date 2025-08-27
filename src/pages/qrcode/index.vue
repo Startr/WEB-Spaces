@@ -56,7 +56,7 @@
             />
           </a> -->
           <a
-            :href="'https://meet.jit.si/' + thisRooms.meet"
+            :href="'https://meet.startr.space/' + thisRooms.meet"
             target="meeting_iframe"
             class="dot"
             style="background-color: #ff5555"
@@ -69,7 +69,7 @@
             v-for="n in thisRooms.classroom.breakout_rooms"
             v-bind:key="n"
             :href="
-              'https://meet.jit.si/' +
+              'https://meet.startr.space/' +
               thisRooms.meet +
               '-breakout-room-' +
               n +
