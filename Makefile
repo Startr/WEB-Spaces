@@ -23,7 +23,8 @@ help:
 	@echo ""	
 
 # Configuration variables
-IMAGE_NAME := startr/ai-web-sageui
+IMAGE_NAME_ROOT := startr
+IMAGE_NAME := $(IMAGE_NAME_ROOT)/$(shell basename $(PWD) | tr '[:upper:]' '[:lower:]')
 GHCR_IMAGE_NAME := ghcr.io/$(IMAGE_NAME)
 GIT_TAG := $(shell git tag --sort=-v:refname | sed 's/^v//' | head -n 1)
 IMAGE_TAG := $(if $(GIT_TAG),$(GIT_TAG),latest)
@@ -33,7 +34,7 @@ ifeq ($(GIT_BRANCH),HEAD)
 endif
 SAFE_GIT_BRANCH := $(subst /,-,$(GIT_BRANCH))
 SAFE_GIT_BRANCH := $(shell echo $(SAFE_GIT_BRANCH) | tr '[:upper:]' '[:lower:]')
-CONTAINER_NAME := ai-web-sageui
+CONTAINER_NAME := $(shell basename $(PWD) | tr '[:upper:]' '[:lower:]')
 PORT_MAPPING := 8080:8080
 VOLUME_DATA := sage-open-webui:/app/backend/data
 ENV_FILE := $$(pwd)/.env:/app/.env
