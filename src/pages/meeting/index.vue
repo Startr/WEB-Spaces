@@ -59,7 +59,7 @@
             <img
               class="brightness"
               onclick="openWindowSide()"
-              src="/assets/show-window.svg"
+              src="assets/show-window.svg"
               style="height: 36px"
               id="app_opener"
             />
