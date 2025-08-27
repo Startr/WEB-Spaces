@@ -15,7 +15,7 @@
                     {
                         "name": "FAQ",
                         "logo": "",
-                        "iframe": "https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Foyer-Whiteboard"
                     }
                 ],
                 "platform": {
@@ -45,7 +45,7 @@
                     {
                         "name": "Shared Whiteboard",
                         "logo": "https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/dd/c6/96/ddc69628-d261-913b-220c-eaed6f140dd3/source/256x256bb.jpg",
-                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Whiteboard"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Meeting-Room-Whiteboard"
                     }
                 ],
                 "platform": {

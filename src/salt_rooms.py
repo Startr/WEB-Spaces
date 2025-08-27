@@ -34,7 +34,6 @@ class Rooms:
         return self.data
         
     def salt_whiteboard(self):
-        #data["results"][1]["classroom"]["app_set"][0]["iframe"]
         self.data["results"][1]["classroom"]["app_set"][0]["iframe"] = self.data["results"][1]["classroom"]["app_set"][0]["iframe"] + "-" + salt
         return self.data
     

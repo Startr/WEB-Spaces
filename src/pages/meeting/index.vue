@@ -98,7 +98,7 @@
             class="dot support"
             target="_blank"
             onclick=""
-            href="https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
+            href="https://wbo.ophir.dev/boards/FtsL-vNceb-IA-H93os4RKIkbS2of0wIK18cdMggPbs-"
           >
             <span>?</span>
           </a>
@@ -115,7 +115,7 @@
       <div class="window">
         <iframe
           style="width: 0%; height: calc(100% - 50px); border: none"
-          src="https://startr-screen-shot-api.test.openco.ca/render?renderType=pdf&url=https://startr.notion.site/Startr-Spaces-FAQ-9d3a009a21b44e3c970a90d2e910c9cf"
+          src="https://wbo.ophir.dev/boards/Startr-Space-Shared-Meeting-Room-Whiteboard-"
           id="faq"
           name="faq_iframe"
         ></iframe>
