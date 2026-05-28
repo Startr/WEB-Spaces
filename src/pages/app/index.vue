@@ -12,7 +12,7 @@
 
         <div id="logo">
           <img
-            src="assets/logo.png"
+            src="/assets/logo.png"
             alt="Logo"
             style="padding: 6px; margin-left: 60px"
             id="logoImg"
@@ -63,7 +63,7 @@
             id="dot1"
             onclick="breakout(this)"
           >
-            <img src="assets/home.svg" />
+            <img src="/assets/home.svg" />
           </a>
 
         </div>

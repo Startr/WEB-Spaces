@@ -8,20 +8,20 @@ const routes = [
     path: "/meet/:meet/app",
     props: true,
     component: () =>
-      import("./pages/app")
+      import("./pages/app/index.vue")
   },
   {
     path: "/meet/:meet/qr",
     props: true,
     component: () =>
-      import("./pages/qrcode")
+      import("./pages/qrcode/index.vue")
   },
   {
     path: "/meet/:meet",
     name: "meet",
     props: true,
     component: () =>
-      import(/* webpackChunkName: "page-meet" */ "./pages/meeting"),
+      import(/* webpackChunkName: "page-meet" */ "./pages/meeting/index.vue"),
     children: [
     ]
   },

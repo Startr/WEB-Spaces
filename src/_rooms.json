@@ -8,6 +8,17 @@
             "name": "Foyer - Lobby",
             "route": "meet",
             "meet": "Foyer-Lobby",
+            "schedule": {
+                "timezone": "America/Toronto",
+                "recurring": [
+                    { "day": "monday", "open": "09:00", "close": "17:00" },
+                    { "day": "tuesday", "open": "09:00", "close": "17:00" },
+                    { "day": "wednesday", "open": "09:00", "close": "17:00" },
+                    { "day": "thursday", "open": "09:00", "close": "17:00" },
+                    { "day": "friday", "open": "09:00", "close": "17:00" }
+                ]
+            },
+            "description": "Welcome to the Foyer! This lobby is open weekdays 9 AM \u2013 5 PM ET.",
             "classroom": {
                 "room": 15,
                 "teacher_set": [],
@@ -22,7 +33,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://meet.startr.space/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720&config.prejoinConfig.enabled=false",
                     "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
@@ -38,6 +49,17 @@
             "name": "Salle de r\u00e9union - Meeting Room",
             "route": "meet",
             "meet": "Meeting-Room",
+            "schedule": {
+                "timezone": "America/Toronto",
+                "recurring": [
+                    { "day": "wednesday", "open": "13:00", "close": "15:00" }
+                ],
+                "events": [
+                    { "date": "2026-03-15", "open": "10:00", "close": "16:00" }
+                ]
+            },
+            "description": "Weekly team sync \u2014 review action items before joining.",
+            "waiting_iframe": "https://docs.google.com/forms/d/e/1FAIpQLSe_example/viewform?embedded=true",
             "classroom": {
                 "room": 60,
                 "teacher_set": [],
@@ -52,7 +74,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://meet.startr.space/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720&config.prejoinConfig.enabled=false",
                     "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
@@ -82,7 +104,7 @@
                     "id": 3,
                     "name": "High Capacity HQ",
                     "domain": "https://meet.startr.space/startr/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720&config.prejoinConfig.enabled=false",
                     "logo": "https://meet.startr.space/startr/",
                     "order": 3
                 },
@@ -112,7 +134,7 @@
                     "id": 1,
                     "name": "Public Jitsi",
                     "domain": "https://meet.startr.space/",
-                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=true&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720",
+                    "paramiters": "#jitsi_meet_external_api_id=0&amp;config.requireDisplayName=false&amp;config.startAudioMuted=6&amp;config.disableAudioLevels=true&amp;interfaceConfig.DISABLE_VIDEO_BACKGROUND=true&interfaceConfig.SHOW_CHROME_EXTENSION_BANNER=false&config.disableDeepLinking=true&setVideoQuality=720&config.prejoinConfig.enabled=false",
                     "logo": "https://meet.startr.space/",
                     "order": 1
                 },

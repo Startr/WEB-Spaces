@@ -11,12 +11,23 @@ Startr Spaces provides people with virtual spaces. It is an online environment w
 
 [![Run on https://codesandbox.io/](./public/assets/codesandbox.svg)](https://codesandbox.io/s/github/Startr/WEB-Spaces/)
 
-Features include: 
+Features include:
 
 *   An interactive room experience, where participants can connect with one another in real-time, whether it be through face-to-face interaction or over the internet via voice, text, and video conferencing. Allowing for hosts to keep an eye on discussions from anywhere on the planet.
 *   Flexibility in learning, where students can complete their assignments at their own pace, free from the constraints of traditional class schedules. And the ability to take quizzes and assessments at any time.
 *   An emphasis on collaboration, where the class works together towards a common goal, with access to all the same resources, including lesson plans, videos, and other materials.
 *   A platform that is always improving, with frequent updates to enhance the user experience.
+
+### Display Name Management
+
+Startr Spaces handles Jitsi display names directly from the Vue SPA, bypassing Jitsi's built-in prejoin screen. This gives users a seamless entry into meetings.
+
+**How it works:**
+*   On first visit, a modal prompts the user to enter their display name before joining a meeting
+*   The name is saved to `localStorage` (key: `spaces-display-name`) and reused on future visits
+*   Users can change their name anytime via the user icon in the top-right header bar
+*   The display name is passed to Jitsi via URL hash parameters (`userInfo.displayName`) along with `config.prejoinConfig.enabled=false` and `config.requireDisplayName=false` to skip the prejoin screen
+*   The name is applied to the main room iframe and all breakout room links
 
 ## Setup
 

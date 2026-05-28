@@ -24,7 +24,7 @@
         <li v-for="item in filtered_rooms" v-bind:key="item.id" v-bind:name="item.name" class="room">
           <div v-if="item.classroom" onclick="document.querySelector('#menuToggle > input[type=checkbox]').checked = false">
             <div v-if=" item.name === item.name.toUpperCase() " class="program"> {{ item.name }} </div>
-            <div v-else><router-link :to="{ name: item.route, params: item.classroom }">{{ item.name }}</router-link>
+            <div v-else><span v-if="item.schedule" class="schedule-dot" :class="isRoomOpen(item) ? 'open' : 'closed'"></span><router-link :to="{ name: item.route, params: item.classroom }">{{ item.name }}</router-link>
           </div>
           </div>
         </li>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import { checkSchedule } from '../utils/schedule.js';
+
 export default {
   name: "MenuItems",
   props: {
@@ -46,9 +48,23 @@ export default {
       default: () => []
     }
   },
-  // data: () => ({
-  //   filtered_rooms: this.rooms
-  // }),
+  data: function () {
+    return {
+      now: Date.now(),
+      scheduleTimer: null,
+    };
+  },
+  mounted: function () {
+    this.scheduleTimer = setInterval(() => {
+      this.now = Date.now();
+    }, 60000);
+  },
+  beforeDestroy: function () {
+    if (this.scheduleTimer) {
+      clearInterval(this.scheduleTimer);
+      this.scheduleTimer = null;
+    }
+  },
   methods: {
     room_filter() {
       if (this.search != ""){
@@ -57,7 +73,13 @@ export default {
       } else {
         this.filtered_rooms = this.rooms;
       }
-    }
+    },
+    isRoomOpen(item) {
+      if (!item.schedule) return true;
+      // Reference this.now to ensure reactivity on each tick
+      void this.now;
+      return checkSchedule(item.schedule).isOpen;
+    },
   },
 };
 
@@ -173,5 +195,22 @@ export default {
 
 #menuToggle input:checked ~ #menu {
   transform: none;
+}
+
+.schedule-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.schedule-dot.open {
+  background-color: #4caf50;
+}
+
+.schedule-dot.closed {
+  background-color: #ff5555;
 }
 </style>

@@ -1,0 +1,19 @@
+# Hidden-artifact allowlist: deny dotfiles and dotfolders everywhere in the
+# build context unless they are intentionally needed inside the image.
+.*
+
+# Build & runtime junk
+node_modules/
+tmp/
+*.log
+*.pem
+
+# dist/ is a git submodule (gh-pages output) — not needed for the bun build
+dist/
+
+# Generated analysis file
+semantic_analysis.md
+
+# Repo metadata (not needed inside the image)
+README.md
+Makefile

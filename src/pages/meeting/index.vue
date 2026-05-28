@@ -1,6 +1,24 @@
 <template>
   <div>
-    <div v-if="$route.params" id="content">
+    <WaitingRoom v-if="thisRooms && !isRoomOpen" :room="thisRooms" @room-opened="onRoomOpened" />
+    <div v-else-if="$route.params && thisRooms" id="content">
+      <!-- Username Modal -->
+      <div v-if="showNameModal" class="name-modal-backdrop">
+        <div class="name-modal-content">
+          <h2>Enter your display name</h2>
+          <p>This name will be visible to others in the meeting.</p>
+          <input
+            type="text"
+            v-model="nameInput"
+            placeholder="Your name"
+            class="name-input"
+            maxlength="50"
+            @keyup.enter="saveName"
+            autofocus
+          />
+          <button class="name-save-btn" @click="saveName">Join</button>
+        </div>
+      </div>
       <div id="header">
         <span class="connState"></span>
         <!--<button id="start-togetherjs" type="button"
@@ -12,7 +30,7 @@
 
         <div id="logo">
           <img
-            src="assets/logo.png"
+            src="/assets/logo.png"
             alt="Logo"
             style="padding: 6px; margin-left: 60px"
             id="logoImg"
@@ -55,42 +73,36 @@
           />
         </div>
         <div id="open" style="right: 1%; position: fixed">
+          <a class="user-icon-btn" @click="openNameModal" title="Change display name">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f1f1f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 28px; width: 28px; cursor: pointer;">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
           <a>
             <img
               class="brightness"
               onclick="openWindowSide()"
-              src="assets/show-window.svg"
+              src="/assets/show-window.svg"
               style="height: 36px"
               id="app_opener"
             />
           </a>
           <a
-            :href="
-              thisRooms.classroom.platform.domain +
-              thisRooms.meet + thisRooms.salt +
-              thisRooms.classroom.platform.paramiters
-            "
-            target="meeting_iframe"
+            @click.prevent="switchRoom(null, $event)"
+            href="#"
             class="dot"
             style="background-color: #ff5555"
             id="dot1"
-            onclick="breakout(this)"
           >
-            <img src="assets/home.svg" />
+            <img src="/assets/home.svg" />
           </a>
           <a
             v-for="n in thisRooms.classroom.breakout_rooms"
             v-bind:key="n"
-            :href="
-              thisRooms.classroom.platform.domain +
-              thisRooms.meet + thisRooms.salt +
-              '-breakout-room-' +
-              n +
-              thisRooms.classroom.platform.paramiters
-            "
+            @click.prevent="switchRoom(n, $event)"
+            href="#"
             class="dot"
-            target="meeting_iframe"
-            onclick="breakout(this)"
           >
             <span>{{ n }}</span>
           </a>
@@ -142,27 +154,19 @@
             class="Close"
           ></iframe>
         </template>
-        <iframe
-          id="jitsi"
-          allow="microphone; camera; display-capture; fullscreen, execution-while-not-rendered, execution-while-out-of-viewport"
-          :src="
-            thisRooms.classroom.platform.domain +
-            thisRooms.meet + thisRooms.salt +
-            thisRooms.classroom.platform.paramiters
-          "
-          name="meeting_iframe"
-          class="Open"
-        >
-          <p>Your browser does not support iframes.</p>
-        </iframe>
+        <div id="jitsi" class="Open"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import WaitingRoom from '../../components/WaitingRoom.vue';
+import { checkSchedule } from '../../utils/schedule.js';
+
 export default {
   name: "meet",
   title: "Hall",
+  components: { WaitingRoom },
   created: function () {
     //Populate empty meeting
   },
@@ -170,6 +174,13 @@ export default {
     return {
       app: "",
       config: {},
+      now: Date.now(),
+      scheduleTimer: null,
+      displayName: localStorage.getItem('spaces-display-name') || '',
+      nameInput: '',
+      showNameModal: false,
+      jitsiApi: null,
+      jitsiScriptLoaded: false,
     };
   },
   computed: {
@@ -209,9 +220,200 @@ export default {
         (room) => room.meet == this.$route.params.meet
       );
     },
+    jitsiDomain: function () {
+      if (!this.thisRooms) return '';
+      try {
+        var url = new URL(this.thisRooms.classroom.platform.domain);
+        return url.hostname;
+      } catch (e) {
+        return '';
+      }
+    },
+    jitsiRoomName: function () {
+      if (!this.thisRooms) return '';
+      try {
+        var url = new URL(this.thisRooms.classroom.platform.domain);
+        var pathPrefix = url.pathname.replace(/^\//, '').replace(/\/$/, '');
+        var room = this.thisRooms.meet + this.thisRooms.salt;
+        return pathPrefix ? pathPrefix + '/' + room : room;
+      } catch (e) {
+        return this.thisRooms.meet + this.thisRooms.salt;
+      }
+    },
+    isRoomOpen: function () {
+      if (!this.thisRooms || !this.thisRooms.schedule) return true;
+      // Reference this.now to ensure reactivity
+      void this.now;
+      return checkSchedule(this.thisRooms.schedule).isOpen;
+    },
+  },
+  watch: {
+    thisRooms: function () {
+      if (!this.jitsiScriptLoaded) {
+        this.loadJitsiScript();
+      }
+      this.tryInitJitsi();
+    },
+    isRoomOpen: function (newVal) {
+      if (newVal) {
+        this.tryInitJitsi();
+      }
+    },
+  },
+  mounted: function () {
+    this.scheduleTimer = setInterval(() => {
+      this.now = Date.now();
+    }, 1000);
+    if (!this.displayName) {
+      this.nameInput = '';
+      this.showNameModal = true;
+    }
+    this.loadJitsiScript();
+  },
+  beforeDestroy: function () {
+    if (this.scheduleTimer) {
+      clearInterval(this.scheduleTimer);
+      this.scheduleTimer = null;
+    }
+    this.disposeJitsi();
+  },
+  methods: {
+    onRoomOpened: function () {
+      this.now = Date.now();
+    },
+    saveName: function () {
+      var trimmed = this.nameInput.trim();
+      if (trimmed) {
+        this.displayName = trimmed;
+        localStorage.setItem('spaces-display-name', trimmed);
+        this.showNameModal = false;
+        if (this.jitsiApi) {
+          // Update display name in the live meeting without reloading
+          this.jitsiApi.executeCommand('displayName', trimmed);
+        } else {
+          this.tryInitJitsi();
+        }
+      }
+    },
+    openNameModal: function () {
+      this.nameInput = this.displayName;
+      this.showNameModal = true;
+    },
+    loadJitsiScript: function () {
+      if (this.jitsiScriptLoaded || !this.jitsiDomain) return;
+      if (window.JitsiMeetExternalAPI) {
+        this.jitsiScriptLoaded = true;
+        this.tryInitJitsi();
+        return;
+      }
+      var self = this;
+      var script = document.createElement('script');
+      script.src = 'https://' + this.jitsiDomain + '/external_api.js';
+      script.onload = function () {
+        self.jitsiScriptLoaded = true;
+        self.tryInitJitsi();
+      };
+      document.head.appendChild(script);
+    },
+    tryInitJitsi: function () {
+      if (!this.jitsiScriptLoaded || this.jitsiApi || !this.thisRooms || !this.isRoomOpen) return;
+      var self = this;
+      this.$nextTick(function () {
+        var container = document.querySelector('#jitsi');
+        if (container) {
+          self.initJitsi();
+        }
+      });
+    },
+    initJitsi: function (roomName) {
+      this.disposeJitsi();
+      var container = document.querySelector('#jitsi');
+      if (!container || !this.jitsiDomain) return;
+      this.jitsiApi = new window.JitsiMeetExternalAPI(this.jitsiDomain, {
+        roomName: roomName || this.jitsiRoomName,
+        parentNode: container,
+        width: '100%',
+        height: '100%',
+        userInfo: {
+          displayName: this.displayName || undefined,
+        },
+        configOverwrite: {
+          requireDisplayName: false,
+          startAudioMuted: 6,
+          disableAudioLevels: true,
+          disableDeepLinking: true,
+          prejoinConfig: { enabled: false },
+          toolbarButtons: [
+            'camera',
+            'chat',
+            'closedcaptions',
+            'desktop',
+            'download',
+            'embedmeeting',
+            'etherpad',
+            'feedback',
+            'filmstrip',
+            'fullscreen',
+            'hangup',
+            'help',
+            'highlight',
+            'invite',
+            'livestreaming',
+            'microphone',
+            'noisesuppression',
+            'profile',
+            'raisehand',
+            'recording',
+            'security',
+            'select-background',
+            'settings',
+            'shareaudio',
+            'sharedvideo',
+            'shortcuts',
+            'stats',
+            'tileview',
+            'toggle-camera',
+            'videoquality',
+            'whiteboard',
+            // 'participants-pane' intentionally hidden
+          ],
+        },
+        interfaceConfigOverwrite: {
+          DISABLE_VIDEO_BACKGROUND: true,
+          SHOW_CHROME_EXTENSION_BANNER: false,
+        },
+      });
+    },
+    disposeJitsi: function () {
+      if (this.jitsiApi) {
+        this.jitsiApi.dispose();
+        this.jitsiApi = null;
+      }
+    },
+    switchRoom: function (breakoutNumber, event) {
+      // Handle active dot styling (replaces global breakout() function)
+      var dots = document.getElementsByClassName('dot');
+      Array.from(dots).forEach(function (e) { e.classList.remove('active'); });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+      }
+      // Switch Jitsi room
+      var roomName = this.jitsiRoomName;
+      if (breakoutNumber) {
+        roomName += '-breakout-room-' + breakoutNumber;
+      }
+      this.initJitsi(roomName);
+    },
   },
 };
 </script>
+
+<style>
+/* Jitsi IFrame API container - unscoped to target dynamically created iframe */
+#jitsi iframe {
+  border: none !important;
+}
+</style>
 
 <style scoped>
 a {
@@ -520,5 +722,92 @@ h1 {
   .modal {
     display: block;
   }
+}
+
+/* Username Modal */
+.name-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-modal-content {
+  background: rgba(40, 52, 68, 1);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.name-modal-content h2 {
+  color: #f1f1f1;
+  font-size: 1.4em;
+  margin: 0 0 12px 0;
+}
+
+.name-modal-content p {
+  color: #aab;
+  font-size: 0.95em;
+  margin: 0 0 24px 0;
+  line-height: 1.4;
+}
+
+.name-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.1em;
+  font-family: 'Varela Round', sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f1f1f1;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.name-input:focus {
+  border-color: #4caf50;
+}
+
+.name-input::placeholder {
+  color: rgba(241, 241, 241, 0.3);
+}
+
+.name-save-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  font-family: 'Varela Round', sans-serif;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.name-save-btn:hover {
+  background: #1e824c;
+}
+
+/* User icon in header */
+.user-icon-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.user-icon-btn:hover svg {
+  stroke: #4caf50;
 }
 </style>
