@@ -4,40 +4,60 @@
  */
 
 const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+const TIME_RE = /^\d{2}:\d{2}$/;
+
+/**
+ * Validate a room schedule at load time. Throws on bad day names,
+ * malformed times, or unrecognised timezone.
+ */
+export function validateSchedule(schedule, roomName) {
+  if (!schedule) return;
+  const tz = schedule.timezone || 'UTC';
+  try {
+    Intl.DateTimeFormat('en-US', { timeZone: tz });
+  } catch {
+    throw new Error(`Room "${roomName}": invalid timezone "${tz}"`);
+  }
+  for (const slot of schedule.recurring || []) {
+    if (!DAYS.includes(slot.day.toLowerCase()))
+      throw new Error(`Room "${roomName}": invalid day "${slot.day}"`);
+    if (!TIME_RE.test(slot.open) || !TIME_RE.test(slot.close))
+      throw new Error(`Room "${roomName}": malformed time in ${slot.day} (expected HH:MM)`);
+  }
+  for (const slot of schedule.events || []) {
+    if (!TIME_RE.test(slot.open) || !TIME_RE.test(slot.close))
+      throw new Error(`Room "${roomName}": malformed time in event ${slot.date} (expected HH:MM)`);
+  }
+}
 
 /**
  * Get the current day name and HH:MM time in the given IANA timezone.
- * Falls back to UTC on invalid timezone string.
+ * Throws on invalid timezone — use validateSchedule() at load time to catch early.
  */
 export function getNowInTimezone(tz) {
-  try {
-    const now = new Date();
-    const formatter = new Intl.DateTimeFormat('en-US', {
-      timeZone: tz,
-      weekday: 'long',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-    });
-    const parts = {};
-    formatter.formatToParts(now).forEach(({ type, value }) => {
-      parts[type] = value;
-    });
-    return {
-      day: parts.weekday.toLowerCase(),
-      time: `${parts.hour.padStart(2, '0')}:${parts.minute.padStart(2, '0')}`,
-      date: `${parts.year}-${parts.month}-${parts.day}`,
-      dayIndex: DAYS.indexOf(parts.weekday.toLowerCase()),
-      timestamp: now,
-    };
-  } catch {
-    // Invalid timezone — fall back to UTC
-    return getNowInTimezone('UTC');
-  }
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz,
+    weekday: 'long',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+  const parts = {};
+  formatter.formatToParts(now).forEach(({ type, value }) => {
+    parts[type] = value;
+  });
+  return {
+    day: parts.weekday.toLowerCase(),
+    time: `${parts.hour.padStart(2, '0')}:${parts.minute.padStart(2, '0')}`,
+    date: `${parts.year}-${parts.month}-${parts.day}`,
+    dayIndex: DAYS.indexOf(parts.weekday.toLowerCase()),
+    timestamp: now,
+  };
 }
 
 /**

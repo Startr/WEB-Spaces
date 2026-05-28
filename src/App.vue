@@ -18,6 +18,12 @@ import data from "./rooms.json";
 // Pro Accounts use the API see created() below
 
 import RoomMenu from "./components/RoomMenu.vue";
+import { validateSchedule } from "./utils/schedule.js";
+
+// Fail loud on bad schedule config at load time
+for (const room of data.results) {
+  validateSchedule(room.schedule, room.name);
+}
 
 export default {
   name: "App",

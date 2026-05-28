@@ -64,7 +64,7 @@
                 "meet": "Foyer-Lobby",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+            "salt": "\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
         },
         {
             "name": "Salle de r\u00e9union - Meeting Room",
@@ -96,7 +96,7 @@
                     {
                         "name": "Shared Whiteboard",
                         "logo": "https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/dd/c6/96/ddc69628-d261-913b-220c-eaed6f140dd3/source/256x256bb.jpg",
-                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Meeting-Room-Whiteboard-\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+                        "iframe": "https://wbo.ophir.dev/boards/Startr-Space-Shared-Meeting-Room-Whiteboard-\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
                     }
                 ],
                 "platform": {
@@ -114,7 +114,7 @@
                 "meet": "Meeting-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+            "salt": "\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
         },
         {
             "name": "Biblioth\u00e8que - Library",
@@ -145,7 +145,7 @@
                 "meet": "Online-Library",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+            "salt": "\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
         },
         {
             "name": "Salle de jeux - Games Room",
@@ -176,8 +176,8 @@
                 "meet": "Online-Games-Room",
                 "taught_by": ""
             },
-            "salt": "\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+            "salt": "\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
         }
     ],
-    "salt": "\ud83d\ude43\ud83d\ude10\ud83d\ude02\ud83d\ude42"
+    "salt": "\ud83d\ude06\ud83d\ude0b\ud83d\ude0c\ud83d\ude07"
 }

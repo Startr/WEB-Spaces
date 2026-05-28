@@ -176,7 +176,7 @@ export default {
       config: {},
       now: Date.now(),
       scheduleTimer: null,
-      displayName: localStorage.getItem('spaces-display-name') || '',
+      displayName: (localStorage.getItem('spaces-display-name') || '').slice(0, 50).trim(),
       nameInput: '',
       showNameModal: false,
       jitsiApi: null,
