@@ -36,7 +36,8 @@ SAFE_GIT_BRANCH := $(subst /,-,$(GIT_BRANCH))
 SAFE_GIT_BRANCH := $(shell echo $(SAFE_GIT_BRANCH) | tr '[:upper:]' '[:lower:]')
 CONTAINER_NAME := $(shell basename $(PWD) | tr '[:upper:]' '[:lower:]')
 PORT_MAPPING := 8080:8080
-VOLUME_DATA := sage-open-webui:/app/backend/data
+# Its own volume: sage-open-webui is AI-UI's data, and this template once pointed there.
+VOLUME_DATA ?= web-spaces-data:/app/backend/data
 ENV_FILE := $$(pwd)/.env:/app/.env
 FRONTEND_SRC := $$(pwd)/app/src/:/app/src/
 BACKEND_SRC := $$(pwd)/app/backend/:/app/backend/
@@ -100,7 +101,8 @@ build_slim:
 	# Note at the moment manual use of the site is required to build the slim version
 	# we need to add selenium automation to the build process to automate this
 	# see https://github.com/slimtoolkit/slim
-	slim build --http-probe  --include-path /app/backend --include-path /app/static --continue-after=160  $(IMAGE_NAME)
+	@# slim reads DOCKER_HOST, not docker's context: Colima has no /var/run/docker.sock.
+	DOCKER_HOST=$$(docker context inspect -f '{{.Endpoints.docker.Host}}') slim build --http-probe  --include-path /app/backend --include-path /app/static --continue-after=160  $(IMAGE_NAME)
 
 it_run_slim:
 	# Run the slim version of the image
