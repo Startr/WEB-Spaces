@@ -10,7 +10,6 @@
 !/.yarnclean
 !/.github/
 !/.github/**
-!/staticrypt-gh-pages/.gitignore
 
 # Non-dot build & runtime junk
 node_modules/
